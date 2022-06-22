@@ -5,10 +5,16 @@ int alertFailureCount = 0;
 
 int networkAlertStub(float celcius) {
     std::cout << "ALERT: Temperature is " << celcius << " celcius.\n";
+
+    int returnValue = 200;
+    if (celcius > 180.0)
+    {
+        returnValue = 500;
+    }
     // Return 200 for ok
     // Return 500 for not-ok
     // stub always succeeds and returns 200
-    return 200;
+    return returnValue;
 }
 
 void alertInCelcius(float farenheit) {
@@ -19,7 +25,7 @@ void alertInCelcius(float farenheit) {
         // let us keep a count of failures to report
         // However, this code doesn't count failures!
         // Add a test below to catch this bug. Alter the stub above, if needed.
-        alertFailureCount += 0;
+        alertFailureCount += 1;
     }
 }
 
